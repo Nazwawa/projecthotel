@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <form>
+                    <form method="POST"> 
                         @csrf
                         <div class="row g-3">
                             <div class="col-md-6 ">

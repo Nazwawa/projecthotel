@@ -39,12 +39,6 @@
           <li class="nav-item menu-open">
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>Home</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
                 <a href="{{ url('kamars') }}" class="nav-link">
                   <p>Kamar</p>
                 </a>
@@ -92,22 +86,8 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer" style="margin-left:0;">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      SMK WIKRAMA BOGOR
-    </div>
-    <!-- Default to the left -->
-    <strong>Hotel Hebat</a>.</strong>
-  </footer>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
+  
+  <!-- jQuery -->
 <script src="../../AdminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -41,60 +41,58 @@ class BookingController extends Controller
     public function store(Request $request)
     {
 
-        // $validate = $request->validate([
-        //     'nama_pemesan' => ['required','max:255','string'],
-        //     'email' => ['required','max:255','string'],
-        //     'no_hp' => ['required','max:255','string'],
-        //     'nama_tamu' => ['required','max:255','string'],
-        //     'tipe_kamar' => ['required','max:255','string'],
-        //     'jumlah' =>['required','max:255','string'],
-        //     'tgl_check_in' => ['required','max:255','string'],
-        //     'tgl_check_out' => ['required','max:255','string'],
-        // ]);
+        $validate = $request->validate([
+            'nama_pemesan' => ['required','max:255','string'],
+            'email' => ['required','max:255','string'],
+            'no_hp' => ['required','max:255','string'],
+            'nama_tamu' => ['required','max:255','string'],
+            'tipe_kamar' => ['required','max:255','string'],
+            'jumlah' =>['required','max:255','string'],
+            'tgl_check_in' => ['required','max:255','string'],
+            'tgl_check_out' => ['required','max:255','string'],
+        ]);
 
-        $validate = $request->all();
+        // $validate = $request->all();
 
-        try{
-            $booking = new Booking;
-            $booking->nama_pemesan = $validate['nama_pemesan'];
-            $booking->save(); // returns false
-         }
-         catch(\Exception $e){
-            // do task when error
-            echo $e->getMessage();   // insert query
-         }
+        // try{
+        //     $booking = new Booking;
+        //     $booking->nama_pemesan = $validate['nama_pemesan'];
+        //     $booking->save(); // returns false
+        //  }
+        //  catch(\Exception $e){
+        //     // do task when error
+        //     echo $e->getMessage();   // insert query
+        //  }
 
-        // Booking::create($validateData);
-        // return redirect()->route(buktis.index);
+        Booking::create($validate);
+        $validate = $request->validate([
+            'nama_pemesan' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required|max:20',
+            'nama_tamu' => 'required',
+            'tipe_kamar' => 'required',
+            'jumlah' =>'required',
+            'tgl_check_in' => 'required',
+            'tgl_check_out' => 'required'
+        ]);
 
-        // $validate = $request->validate([
-        //     'nama_pemesan' => 'required',
-        //     'email' => 'required',
-        //     'no_hp' => 'required|max:20',
-        //     'nama_tamu' => 'required',
-        //     'tipe_kamar' => 'required',
-        //     'jumlah' =>'required',
-        //     'tgl_check_in' => 'required',
-        //     'tgl_check_out' => 'required'
-        // ]);
-
-        // Booking::create($validate);
-        // Bukti::create([
-        //     'nama_pemesan' => $validate['nama_pemesan'],
-        //     'email' => $validate['email'],
-        //     'no_hp' => $validate['no_hp'],
-        //     'nama_tamu' => $validate['nama_tamu'],
-        //     'tipe_kamar' => $validate['tipe_kamar'],
-        //     'jumlah' => $validate['jumlah'],
-        //     'tgl_check_in' => $validate['tgl_check_in'],
-        //     'tgl_check_out' => $validate['tgl_check_out']
+        Booking::create($validate);
+        Bukti::create([
+            'nama_pemesan' => $validate['nama_pemesan'],
+            'email' => $validate['email'],
+            'no_hp' => $validate['no_hp'],
+            'nama_tamu' => $validate['nama_tamu'],
+            'tipe_kamar' => $validate['tipe_kamar'],
+            'jumlah' => $validate['jumlah'],
+            'tgl_check_in' => $validate['tgl_check_in'],
+            'tgl_check_out' => $validate['tgl_check_out']
             
-        // ]);
-        // Reservation::create([
-        //     'nama_tamu' => $validate['nama_tamu'],
-        //     'tgl_check_in' => $validate['tgl_check_in'],
-        //     'tgl_check_out' => $validate['tgl_check_out']
-        // ]);
+        ]);
+        Reservation::create([
+            'nama_tamu' => $validate['nama_tamu'],
+            'tgl_check_in' => $validate['tgl_check_in'],
+            'tgl_check_out' => $validate['tgl_check_out']
+        ]);
 
         return redirect()->route('buktis.index');
 

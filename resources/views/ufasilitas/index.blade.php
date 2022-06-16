@@ -118,7 +118,7 @@
          </div>
          <div class="row">
          @foreach ($facilities as $facility)
-            <div class="col-md-4 col-sm-6">
+            <div class="rounded float-start">
                <div id="serv_hover"  class="room">
                   <div class="room_img">
                      <figure><img src="/image/{{ $facility->image }}" alt="#"/></figure>

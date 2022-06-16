@@ -10,11 +10,14 @@
 
 <body>
     @foreach ($cetaks as $cetak)
-    <h1>Bukti Pemesanan Hotel Hebat</h1>
-    <div class="card text-center border-info" style="width: 35rem;">
+    <div class="card" style="margin-left:auto; margin-right:auto; width: 40rem; ">
+        <div class="card-header" style="text-align:center;">
+          Bukti Pemesanan Hotel
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Nama Tamu : {{ $cetak->nama_tamu }}</h5>
+            
             <h5 class="card-title">Nama Pemesan: {{ $cetak->nama_pemesan }}</h5>
+            <h5 class="card-title">Nama Tamu : {{ $cetak->nama_tamu }}</h5>
             <h5 class="card-title">No Handphone: {{ $cetak->no_hp }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Tanggal Booking: {{ $cetak->created_at }}</h6>
             <ul class="list-group list-group-flush">
@@ -23,9 +26,9 @@
                 <li class="list-group-item">Tipe Kamar : {{ $cetak->tipe_kamar }}</li>
                 <li class="list-group-item">Jumlah Kamar : {{ $cetak->jumlah }}</li>
             </ul>
-            <p class="card-text">Simpan bukti ini dan berikan pada resepsionis</p>
+          <p class="card-text">Simpan bukti ini dan berikan pada resepsionis</p>
         </div>
-    </div>
+      </div>
     @endforeach
     <script src="#" onload="window.print()"></script>
 </body>

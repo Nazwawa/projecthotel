@@ -139,32 +139,34 @@
                                 Data Reservasi
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple" class="table table-responsive " style="width: 100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Tamu</th>
-                                            <th>Tanggal Check In</th>
-                                            <th>Tanggal Check Out</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
+                                <form method="POST"> 
+                                    <table id="datatablesSimple" class="table table-responsive " style="width: 800%" >
+                                        <thead >
+                                            <tr>
+                                                <th>Nama Tamu</th>
+                                                <th>Tanggal Check In</th>
+                                                <th>Tanggal Check Out</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tbody>
+                                            @foreach( $reservations as $reservation )
+                                            <tr>
+                                                <td>{{ $reservation->nama_tamu }}</td>
+                                                <td>{{ $reservation->tgl_check_in }}</td>
+                                                <td>{{ $reservation->tgl_check_out }}</td>
+                                                <td>
+                                                    @if(date('Y-m-d') < $reservation['tgl_check_in']) Booking @elseif(date('Y-m-d')>= $reservation['tgl_check_in'] && date('Y-m-d') < $reservation['tgl_check_out']) Check In @elseif(date('Y-m-d')>= $reservation['tgl_check_out'])
+                                                            Check Out
+                                                            @endif
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
                                     
-                                    <tbody>
-                                        @foreach( $reservations as $reservation )
-                                        <tr>
-                                            <td>{{ $reservation->nama_tamu }}</td>
-                                            <td>{{ $reservation->tgl_check_in }}</td>
-                                            <td>{{ $reservation->tgl_check_out }}</td>
-                                            <td>
-                                                @if(date('Y-m-d') < $reservation['tgl_check_in']) Booking @elseif(date('Y-m-d')>= $reservation['tgl_check_in'] && date('Y-m-d') < $reservation['tgl_check_out']) Check In @elseif(date('Y-m-d')>= $reservation['tgl_check_out'])
-                                                        Check Out
-                                                        @endif
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-    
-                                </table>
+                                    </table>
+                                </form>
                             </div>
                         </div>
                     </div>

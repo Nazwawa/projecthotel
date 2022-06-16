@@ -8,6 +8,8 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <br>  
     @if ($errors->any())
         <div class="alert alert-danger">
