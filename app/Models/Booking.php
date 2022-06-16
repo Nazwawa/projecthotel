@@ -9,5 +9,5 @@ class Booking extends Model
 {
     use HasFactory;
     protected $table = 'bookings';
-    protected $fillable = ['nama_pemesan', 'email', 'no_hp', 'nama_tamu', 'tipe_kamar', 'jumlah'];
+    protected $fillable = ['nama_pemesan', 'email', 'no_hp', 'nama_tamu', 'tipe_kamar', 'jumlah', 'tgl_check_in', 'tgl_check_out'];
 }
