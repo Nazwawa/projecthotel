@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fasilitas</title>
+    <title>Booking</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -79,8 +79,8 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('user.dashboard') }}" class="nav-item nav-link">Home</a>
                 <a href="{{ route('ukamar.index') }}" class="nav-item nav-link">Kamar</a>
-                <a href="{{ route('ufasilitas.index') }}" class="nav-item nav-link active">Fasilitas</a>
-                <a href="{{ route('bookings.index') }}" class="nav-item nav-link">Pemesanan</a>
+                <a href="{{ route('ufasilitas.index') }}" class="nav-item nav-link">Fasilitas</a>
+                <a href="{{ route('bookings.index') }}" class="nav-item nav-link active">Pemesanan</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                         <a href="route('logout')" onclick="event.preventDefault();this.closest('form').submit();" class="nav-link">Log Out</a>
@@ -94,11 +94,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-1 text-white animated slideInDown">Fasilitas Hotel</h1>
+            <h1 class="display-1 text-white animated slideInDown">Pemesanan</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Fasilitas</li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Pemesanan</li>
                 </ol>
             </nav>
         </div>
@@ -107,33 +107,116 @@
 
 
     <!-- Contact Start -->
-    <div  class="our_room">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12">
-               <div class="titlepage">
-                  <p  class="margin_0">Kami menyediakan beberapa fasilitas untuk Anda </p>
-               </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h4 class="section-title">Form Pemesanan</h4>
+                <h1 class="display-5 mb-4">Silahkan Memesan Kamar</h1>
             </div>
-         </div>
-         <div class="row">
-         @foreach ($facilities as $facility)
-            <div class="col-md-4 col-sm-6">
-               <div id="serv_hover"  class="room">
-                  <div class="room_img">
-                     <figure><img src="/image/{{ $facility->image }}" alt="#"/></figure>
-                  </div>
-                  <div class="bed_room">
-                     <h3>{{ $facility->nama_fasilitas }}</h3>
-                     <p>{{ $facility->keterangan }}</p>
-                  </div>
-               </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-dark" style="width: 55px; height: 55px;">
+                                <i class="fa fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div class="ms-4">
+                                <p class="mb-2">Address</p>
+                                <h3 class="mb-0">Jl. Raya Kopo No.399, Kb. Lega, Kec. Bojongloa Kidul, Kota Bandung, Jawa Barat 40223</h3>
+                            </div>
+                        </div>
+                        <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-dark" style="width: 55px; height: 55px;">
+                                <i class="fa fa-phone-alt text-primary"></i>
+                            </div>
+                            <div class="ms-4">
+                                <p class="mb-2">Call Us Now</p>
+                                <h3 class="mb-0">+62-2181-1811</h3>
+                            </div>
+                        </div>
+                        <div class="bg-light d-flex align-items-center w-100 p-4">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-dark" style="width: 55px; height: 55px;">
+                                <i class="fa fa-envelope-open text-primary"></i>
+                            </div>
+                            <div class="ms-4">
+                                <p class="mb-2">Mail Us Now</p>
+                                <h3 class="mb-0">hotelhebat@gmail.com</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <form>
+                        @csrf
+                        <div class="row g-3">
+                            <div class="col-md-6 ">
+                                <strong>Tanggal Check In</strong>
+                               <input class="contactus" placeholder="yyyy/mm/dd" type="date" name="tgl_check_in"> 
+                            </div>
+                            <div class="col-md-6 ">
+                                <strong>Tanggal Check Out</strong>
+                               <input class="contactus" placeholder="yyyy/mm/dd" type="date" name="tgl_check_out"> 
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="nama_pemesan" placeholder="Nama Pemesan">
+                                    <label for="name">Nama Pemesanan</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="nama_tamu" placeholder="Nama Tamu">
+                                    <label for="name">Nama Tamu</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" name="email" placeholder="Email">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control"  name="no_hp" placeholder="Nomor Handphone">
+                                    <label for="subject">No Handphone</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" name="jumlah" placeholder="Jumlah Kamar">
+                                    <label for="name">Jumlah Kamar</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <strong>Tipe Kamar</strong>
+                                    <select class="contactus" name="tipe_kamar">
+                                        @foreach($kamars as $kamar)
+                                           <option value="{{$kamar->tipe_kamar}}">{{$kamar->tipe_kamar}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Konfirmasi Pemesanan</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-         @endforeach
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
     <!-- Contact End -->
+
+
+    <!-- Google Map Start -->
+    <div class="container-xxl pt-5 px-0 wow fadeIn" data-wow-delay="0.1s">
+        <iframe class="w-100 mb-n2" style="height: 450px;"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5195984390175!2d107.58615781400289!3d-6.947867569946825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9e96f537ead%3A0xa4551b3521087fa9!2sHotel%20Hebat%20Bandung!5e0!3m2!1sid!2sid!4v1649599351573!5m2!1sid!2sid" width="600" 
+            frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    <!-- Google Map End -->
 
 
     <!-- Footer Start -->

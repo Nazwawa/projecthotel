@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Faciliti;
 use Illuminate\Http\Request;
+use App\Models\Facility;
 
-class FacilitiController extends Controller
+class FacilityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class FacilitiController extends Controller
      */
     public function index()
     {
-        $facilities = Faciliti::latest()->paginate(20);
+        $facilities = Facility::latest()->paginate(20);
         return view('facilities.index', compact('facilities'));
     }
 
@@ -51,7 +51,7 @@ class FacilitiController extends Controller
             $input['image'] = "$profileImage";
         }
 
-        Faciliti::create($input);
+        Facility::create($input);
         return redirect()->route('facilities.index')
             ->with('success', 'Data berhasil ditambahkan');
     }
@@ -59,21 +59,21 @@ class FacilitiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Faciliti  $faciliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Faciliti $faciliti)
+    public function show(Facility $facility)
     {
-        return view('facilities.show', compact('faciliti'));
+        return view('facilities.show', compact('facility'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Faciliti  $faciliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faciliti $facility)
+    public function edit(Facility $facility)
     {
         return view('facilities.edit', compact('facility'));
     }
@@ -82,7 +82,7 @@ class FacilitiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Faciliti  $faciliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Facility $facility)
@@ -103,7 +103,7 @@ class FacilitiController extends Controller
             unset($input['image']);
         }
 
-        $faciliti->update($input);
+        $facility->update($input);
         return redirect()->route('facilities.index')
             ->with('success', 'Data berhasil di update');
     }
@@ -111,12 +111,12 @@ class FacilitiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Faciliti  $faciliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faciliti $faciliti)
+    public function destroy(Facility $facility)
     {
-        $faciliti->delete();
+        $facility->delete();
         return redirect()->route('facilities.index')
             ->with('success', 'Data berhasil di hapus');
     }

@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ResespsionisController;
+use App\Http\Controllers\ResespsionistController;
 use Illuminate\Support\Facades\Auth;
 
 

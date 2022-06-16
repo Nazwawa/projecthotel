@@ -1,15 +1,15 @@
 @extends('layout.admin')
   
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="text-right">
-                <a class="btn btn-primary" href="{{ route('facilities.index') }}"> Back</a>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="text-right">
+            <a class="btn btn-primary" href="{{ route('facilities.index') }}"> Back</a>
         </div>
     </div>
+</div>
+    <br>
     <br>  
-    <br> 
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -23,7 +23,9 @@
         
     <form action="{{ route('facilities.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        
+        <br>
+        <br>
+        <br>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

@@ -16,17 +16,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($facilities as $faciliti)
+                @foreach ($facilities as $facility)
                 <tr>
-                    <td>{{ $faciliti->nama_fasilitas }}</td>
-                    <td>{{ $faciliti->keterangan }}</td>
+                    <td>{{ $facility->nama_fasilitas }}</td>
+                    <td>{{ $facility->keterangan }}</td>
                     <td>
-                        <img src="/image/{{ $faciliti->image }}" width="100px">
+                        <img src="/image/{{ $facility->image }}" width="100px">
                     </td>
                     <td>
-                        <form method="POST" action="{{ route('facilities.destroy',$faciliti->id) }}">
-                            <a class="btn btn-primary btn-sm" href="{{ route('facilities.edit',$faciliti->id) }}">Edit</a>
-                            <a class="btn btn-success btn-sm" href="{{ route('facilities.show',$faciliti->id) }}">Lihat</a>
+                        <form method="POST" action="{{ route('facilities.destroy',$facility->id) }}">
+                            <a class="btn btn-primary btn-sm" href="{{ route('facilities.edit',$facility->id) }}">Edit</a>
+                            <a class="btn btn-success btn-sm" href="{{ route('facilities.show',$facility->id) }}">Lihat</a>
                             @csrf
                             @method('DELETE')
 

@@ -63,7 +63,7 @@ class LoginController extends Controller
             }elseif(auth()->user()->role == 2){
                 return redirect()->route('user.dashboard');
             }elseif(auth()->user()->role == 3){
-                return redirect()->route('resepsionis.dashboard');
+                return redirect()->route('resepsionist.dashboard');
             }
         }else{
             return redirect()->route('login')->with('error', 'Email dan Password salah');

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Reservation;
 use App\Models\Kamar;
-// use App\Models\Bukti;
+use App\Models\Bukti;
 
 class BookingController extends Controller
 {
@@ -69,7 +69,7 @@ class BookingController extends Controller
             'tgl_check_out' => $validate['tgl_check_out']
         ]);
 
-        return redirect()->route('bukti.index');
+        return redirect()->route('buktis.index');
 
         
     }

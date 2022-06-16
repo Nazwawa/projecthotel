@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
               return redirect()->route('user.dashboard');
           }
           elseif(Auth::guard($guard)->check() && Auth::user()->role == 3){
-              return redirect()->route('resepsionis.dashboard');
+              return redirect()->route('receptionist.dashboard');
           }
         }
 
