@@ -51,19 +51,7 @@ class BookingController extends Controller
             'tgl_check_in' => ['required','max:255','string'],
             'tgl_check_out' => ['required','max:255','string'],
         ]);
-
-        // $validate = $request->all();
-
-        // try{
-        //     $booking = new Booking;
-        //     $booking->nama_pemesan = $validate['nama_pemesan'];
-        //     $booking->save(); // returns false
-        //  }
-        //  catch(\Exception $e){
-        //     // do task when error
-        //     echo $e->getMessage();   // insert query
-        //  }
-
+        
         Booking::create($validate);
         $validate = $request->validate([
             'nama_pemesan' => 'required',
@@ -131,7 +119,7 @@ class BookingController extends Controller
     public function update(Request $request, Reservation $reservation)
     {
         $request->validate([
-            var_dump($validate),
+            // var_dump($validate),
             'nama_tamu' => 'required',
             'tgl_check_in' => 'required',
             'tgl_check_out' => 'required',
